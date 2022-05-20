@@ -219,4 +219,21 @@ class DefaultController extends AbstractController
 
         return $this->render('default/index.html.twig', []);
     }
+
+    /**
+     * @Route("/navbar-vertical", defaults={}, name="navbar-vertical")
+     */
+    public function navbarVertical(): Response
+    {
+        return $this->render('default/vertical-navbar.html.twig', []);
+    }
+    /**
+     * @Route("/right-to-left", defaults={}, name="layout-rtl")
+     */
+    public function rightToLeft(ContextHelper $contextHelper): Response
+    {
+        $contextHelper->setIsRightToLeft(true);
+
+        return $this->render('default/index.html.twig', []);
+    }
 }

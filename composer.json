@@ -12,7 +12,7 @@
         "doctrine/common": "^3.2.0",
         "doctrine/doctrine-bundle": "^2.5.2",
         "doctrine/orm": "^2.10",
-        "kevinpapst/tabler-bundle": "dev-layout-vertical",
+        "kevinpapst/tabler-bundle": "*",
         "knplabs/knp-menu-bundle": "^3.0",
         "sensio/framework-extra-bundle": "^6",
         "symfony/asset": ">= 5.4",
@@ -29,8 +29,8 @@
         "symfony/twig-bundle": ">= 5.4",
         "erusev/parsedown": "^1.7",
 
-        "symfony/runtime": "5.*",
-        "symfony/validator": "5.*",
+        "symfony/runtime": "6.*",
+        "symfony/validator": "6.*",
         "symfony/webpack-encore-bundle": "^1.9",
         "symfony/yaml": ">= 5.4"
     },
@@ -40,6 +40,9 @@
         "symfony/debug-bundle": ">= 5.4",
         "symfony/web-profiler-bundle": ">= 5.4"
     },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+
     "config": {
         "allow-plugins": {
             "composer/package-versions-deprecated": true,
@@ -94,13 +97,7 @@
     "extra": {
         "symfony": {
             "allow-contrib": false,
-            "require": "^5.4"
-        }
-    },
-    "repositories": {
-        "tabler": {
-            "type": "vcs",
-            "url": "git@github.com:cavasinf/TablerBundle.git"
+            "require": "^6.1"
         }
     }
 }
