@@ -4,15 +4,15 @@
     "type": "project",
     "description": "Demo application to showcase the Tabler Bundle",
     "require": {
-        "php": "^8.0 || ^8.1",
+        "php": "^8.1",
         "ext-ctype": "*",
         "ext-iconv": "*",
         "ext-sqlite3": "*",
         "doctrine/common": "^3.2.0",
-        "doctrine/doctrine-bundle": "^2.5.2",
-        "doctrine/orm": "^2.10",
+        "doctrine/doctrine-bundle": "*",
+        "doctrine/orm": "*",
         "composer/package-versions-deprecated": "^1.11.99",
-        "kevinpapst/tabler-bundle": "dev-main",
+        "kevinpapst/tabler-bundle": "*",
         "knplabs/knp-menu-bundle": "^3.0",
         "symfony/asset": ">= 6.1",
         "symfony/console": ">= 6.1",
@@ -28,8 +28,8 @@
         "symfony/twig-bundle": ">= 6.1",
         "erusev/parsedown": "^1.7",
 
-        "symfony/runtime": "6.*",
-        "symfony/validator": "6.*",
+        "symfony/runtime": ">= 6.1",
+        "symfony/validator": ">= 6.1",
         "symfony/webpack-encore-bundle": "^2.0.1",
         "symfony/yaml": ">= 6.1"
     },
@@ -96,8 +96,14 @@
     },
     "extra": {
         "symfony": {
-            "allow-contrib": false,
-            "require": "^6.4"
+            "allow-contrib": true,
+            "require": "^6.3"
+        }
+    },
+    "repositories": {
+        "tabler-bundle": {
+            "type": "path",
+            "url": "~/g/kevinpapst/TablerBundle"
         }
     }
 }
