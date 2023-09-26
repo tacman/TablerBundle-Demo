@@ -15,8 +15,8 @@ use KevinPapst\TablerBundle\Helper\ContextHelper;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
@@ -26,6 +26,8 @@ class DefaultController extends AbstractController
 {
     /**
      * @Route("/", defaults={}, name="homepage")
+     * @Route("/third-level", defaults={}, name="third_level")
+     * @Route("/third-level2", defaults={}, name="third_level2")
      */
     public function index(): Response
     {
@@ -54,11 +56,35 @@ class DefaultController extends AbstractController
     }
 
     /**
+     * @Route("/status", name="status")
+     */
+    public function status(): Response
+    {
+        return $this->render('components/status/status.html.twig');
+    }
+
+    /**
+     * @Route("/carousel", name="carousel")
+     */
+    public function carousel(): Response
+    {
+        return $this->render('components/carousels/carousels.html.twig');
+    }
+
+    /**
+     * @Route("/accordion", name="accordion")
+     */
+    public function accordion(): Response
+    {
+        return $this->render('components/accordion/accordion.html.twig');
+    }
+
+    /**
      * @Route("/buttons", name="buttons")
      */
     public function buttons(): Response
     {
-        return $this->render('components/buttons.html.twig');
+        return $this->render('components/buttons/buttons.html.twig');
     }
 
     /**
@@ -66,7 +92,7 @@ class DefaultController extends AbstractController
      */
     public function dropdown(): Response
     {
-        return $this->render('components/dropdown.html.twig');
+        return $this->render('components/dropdowns/dropdowns.html.twig');
     }
 
     /**
@@ -74,7 +100,7 @@ class DefaultController extends AbstractController
      */
     public function alert(): Response
     {
-        return $this->render('components/alert.html.twig');
+        return $this->render('components/alerts/alerts.html.twig');
     }
 
     /**
@@ -82,7 +108,7 @@ class DefaultController extends AbstractController
      */
     public function callout(): Response
     {
-        return $this->render('components/callout.html.twig');
+        return $this->render('components/callouts/callouts.html.twig');
     }
 
     /**
@@ -90,7 +116,15 @@ class DefaultController extends AbstractController
      */
     public function modal(): Response
     {
-        return $this->render('components/modal.html.twig');
+        return $this->render('components/modals/modals.html.twig');
+    }
+
+    /**
+     * @Route("/progressbar", name="progressbar")
+     */
+    public function progressbar(): Response
+    {
+        return $this->render('components/progressbar/progressbar.html.twig');
     }
 
     /**
@@ -98,7 +132,40 @@ class DefaultController extends AbstractController
      */
     public function offcanvas(): Response
     {
-        return $this->render('components/offcanvas.html.twig');
+        return $this->render('components/offcanvas/offcanvas.html.twig');
+    }
+
+    /**
+     * @Route("/cardnav", name="cardnav")
+     */
+    public function cardnav(): Response
+    {
+        return $this->render('components/cardnav/cardnav.html.twig');
+    }
+
+    /**
+     * @Route("/cardnav_vertical", name="cardnav_vertical")
+     */
+    public function cardnavVertical(): Response
+    {
+        return $this->render('components/cardnav/vertical.html.twig');
+    }
+
+    /**
+     * @Route("/wizard/{page}", requirements={"page": "[1-9]\d*"}, defaults={"page": 1}, name="wizard")
+     */
+    public function wizard(string $page): Response
+    {
+        $page = (int) $page;
+
+        if ($page > 10) {
+            return $this->redirectToRoute('wizard', ['page' => 1]);
+        }
+
+        return $this->render('default/wizard.html.twig', [
+            'page' => $page,
+            'percent' => $page * 10,
+        ]);
     }
 
     /**
@@ -106,7 +173,7 @@ class DefaultController extends AbstractController
      */
     public function timeline(): Response
     {
-        return $this->render('components/timeline.html.twig');
+        return $this->render('components/timelines/timelines.html.twig');
     }
 
     /**
@@ -217,9 +284,9 @@ class DefaultController extends AbstractController
     /**
      * @Route("/dark-mode", name="dark-mode")
      */
-    public function themeDark(SessionInterface $session): Response
+    public function themeDark(RequestStack $requestStack): Response
     {
-        $session->set('theme', 'dark');
+        $requestStack->getSession()->set('theme', 'dark');
 
         return $this->redirectToRoute('homepage');
     }
@@ -227,9 +294,9 @@ class DefaultController extends AbstractController
     /**
      * @Route("/light-mode", name="light-mode")
      */
-    public function themeLight(SessionInterface $session): Response
+    public function themeLight(RequestStack $requestStack): Response
     {
-        $session->remove('theme');
+        $requestStack->getSession()->remove('theme');
 
         return $this->redirectToRoute('homepage');
     }
@@ -260,5 +327,21 @@ class DefaultController extends AbstractController
         $contextHelper->setIsRightToLeft(true);
 
         return $this->render('default/index.html.twig', []);
+    }
+
+    /**
+     * @Route("/security-centered", defaults={}, name="security-centered")
+     */
+    public function securityCentered(ContextHelper $contextHelper): Response
+    {
+        return $this->render('login.html.twig', []);
+    }
+
+    /**
+     * @Route("/security-cover", defaults={}, name="security-cover")
+     */
+    public function securityCover(ContextHelper $contextHelper): Response
+    {
+        return $this->render('login-cover.html.twig', []);
     }
 }
