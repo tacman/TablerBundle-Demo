@@ -24,7 +24,6 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class DefaultController extends AbstractController
 {
-    #[Route('/', name: 'homepage')]
     #[Route(path: '/', defaults: [], name: 'homepage')]
     #[Route(path: '/third-level', defaults: [], name: 'third_level')]
     #[Route(path: '/third-level2', defaults: [], name: 'third_level2')]
