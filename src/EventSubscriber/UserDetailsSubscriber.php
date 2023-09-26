@@ -19,11 +19,8 @@ use Symfony\Component\Security\Core\User\InMemoryUser;
 
 class UserDetailsSubscriber implements EventSubscriberInterface
 {
-    private $security;
-
-    public function __construct(Security $security)
+    public function __construct(private Security $security)
     {
-        $this->security = $security;
     }
 
     public static function getSubscribedEvents(): array

@@ -20,7 +20,7 @@ class TwigExtensions extends AbstractExtension
     /**
      * @var string[]
      */
-    private $locales;
+    private array $locales;
 
     public function __construct(string $locales)
     {

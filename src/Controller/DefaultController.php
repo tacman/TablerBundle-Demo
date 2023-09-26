@@ -24,27 +24,23 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class DefaultController extends AbstractController
 {
-    /**
-     * @Route("/", defaults={}, name="homepage")
-     * @Route("/third-level", defaults={}, name="third_level")
-     * @Route("/third-level2", defaults={}, name="third_level2")
-     */
+    #[Route('/', name: 'homepage')]
+    #[Route(path: '/', defaults: [], name: 'homepage')]
+    #[Route(path: '/third-level', defaults: [], name: 'third_level')]
+    #[Route(path: '/third-level2', defaults: [], name: 'third_level2')]
     public function index(): Response
     {
         return $this->render('default/index.html.twig', []);
     }
 
-    /**
-     * @Route("/vertical", defaults={}, name="vertical")
-     */
+    #[Route('/vertical', name: 'vertical')]
+    #[Route(path: '/vertical', defaults: [], name: 'vertical')]
     public function vertical(): Response
     {
         return $this->render('default/index.html.twig', ['verticalLayout' => true]);
     }
 
-    /**
-     * @Route("/forms", name="forms")
-     */
+    #[Route(path: '/forms', name: 'forms')]
     public function forms(Request $request): Response
     {
         $form = $this->createForm(FormDemoModelType::class);
@@ -55,105 +51,79 @@ class DefaultController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/status", name="status")
-     */
+    #[Route(path: '/status', name: 'status')]
     public function status(): Response
     {
         return $this->render('components/status/status.html.twig');
     }
 
-    /**
-     * @Route("/carousel", name="carousel")
-     */
+    #[Route(path: '/carousel', name: 'carousel')]
     public function carousel(): Response
     {
         return $this->render('components/carousels/carousels.html.twig');
     }
 
-    /**
-     * @Route("/accordion", name="accordion")
-     */
+    #[Route(path: '/accordion', name: 'accordion')]
     public function accordion(): Response
     {
         return $this->render('components/accordion/accordion.html.twig');
     }
 
-    /**
-     * @Route("/buttons", name="buttons")
-     */
+    #[Route(path: '/buttons', name: 'buttons')]
     public function buttons(): Response
     {
         return $this->render('components/buttons/buttons.html.twig');
     }
 
-    /**
-     * @Route("/dropdown", name="dropdown")
-     */
+    #[Route(path: '/dropdown', name: 'dropdown')]
     public function dropdown(): Response
     {
         return $this->render('components/dropdowns/dropdowns.html.twig');
     }
 
-    /**
-     * @Route("/alert", name="alert")
-     */
+    #[Route(path: '/alert', name: 'alert')]
     public function alert(): Response
     {
         return $this->render('components/alerts/alerts.html.twig');
     }
 
-    /**
-     * @Route("/callout", name="callout")
-     */
+    #[Route(path: '/callout', name: 'callout')]
     public function callout(): Response
     {
         return $this->render('components/callouts/callouts.html.twig');
     }
 
-    /**
-     * @Route("/modal", name="modal")
-     */
+    #[Route(path: '/modal', name: 'modal')]
     public function modal(): Response
     {
         return $this->render('components/modals/modals.html.twig');
     }
 
-    /**
-     * @Route("/progressbar", name="progressbar")
-     */
+    #[Route(path: '/progressbar', name: 'progressbar')]
     public function progressbar(): Response
     {
         return $this->render('components/progressbar/progressbar.html.twig');
     }
 
-    /**
-     * @Route("/offcanvas", name="offcanvas")
-     */
+    #[Route(path: '/offcanvas', name: 'offcanvas')]
     public function offcanvas(): Response
     {
         return $this->render('components/offcanvas/offcanvas.html.twig');
     }
 
-    /**
-     * @Route("/cardnav", name="cardnav")
-     */
+    #[Route(path: '/cardnav', name: 'cardnav')]
     public function cardnav(): Response
     {
         return $this->render('components/cardnav/cardnav.html.twig');
     }
 
-    /**
-     * @Route("/cardnav_vertical", name="cardnav_vertical")
-     */
+    #[Route(path: '/cardnav_vertical', name: 'cardnav_vertical')]
     public function cardnavVertical(): Response
     {
         return $this->render('components/cardnav/vertical.html.twig');
     }
 
-    /**
-     * @Route("/wizard/{page}", requirements={"page": "[1-9]\d*"}, defaults={"page": 1}, name="wizard")
-     */
+    #[Route(path: '/wizard/{page}', requirements: ['page' => '[1-9]\d*'], defaults: ['page' => 1], name: 'wizard')]
     public function wizard(string $page): Response
     {
         $page = (int) $page;
@@ -168,33 +138,25 @@ class DefaultController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/timeline", name="timeline")
-     */
+    #[Route(path: '/timeline', name: 'timeline')]
     public function timeline(): Response
     {
         return $this->render('components/timelines/timelines.html.twig');
     }
 
-    /**
-     * @Route("/full-page", name="full-page")
-     */
+    #[Route(path: '/full-page', name: 'full-page')]
     public function fullpage(): Response
     {
         return $this->render('default/fullpage.html.twig');
     }
 
-    /**
-     * @Route("/vertical-page", name="vertical-page")
-     */
+    #[Route(path: '/vertical-page', name: 'vertical-page')]
     public function verticalpage(): Response
     {
         return $this->render('default/fullpage.html.twig');
     }
 
-    /**
-     * @Route("/documentation/{chapter}", name="documentation")
-     */
+    #[Route(path: '/documentation/{chapter}', name: 'documentation')]
     public function documentation(?string $chapter = null): Response
     {
         if ($chapter === null) {
@@ -220,33 +182,25 @@ class DefaultController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/error-403", name="error403")
-     */
+    #[Route(path: '/error-403', name: 'error403')]
     public function error403(): Response
     {
         throw $this->createAccessDeniedException();
     }
 
-    /**
-     * @Route("/error-404", name="error404")
-     */
+    #[Route(path: '/error-404', name: 'error404')]
     public function error404(): Response
     {
         throw $this->createNotFoundException();
     }
 
-    /**
-     * @Route("/error-500", name="error500")
-     */
+    #[Route(path: '/error-500', name: 'error500')]
     public function error500(): Response
     {
         throw new \RuntimeException('Oops');
     }
 
-    /**
-     * @Route("/forms/horizontal", name="forms-horizontal")
-     */
+    #[Route(path: '/forms/horizontal', name: 'forms-horizontal')]
     public function forms2(Request $request): Response
     {
         $form = $this->createForm(FormDemoModelType::class);
@@ -257,9 +211,7 @@ class DefaultController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/profile", name="profile")
-     */
+    #[Route(path: '/profile', name: 'profile')]
     public function profile(Request $request): Response
     {
         return $this->render('default/profile.html.twig', [
@@ -281,9 +233,7 @@ class DefaultController extends AbstractController
         return $form;
     }
 
-    /**
-     * @Route("/dark-mode", name="dark-mode")
-     */
+    #[Route(path: '/dark-mode', name: 'dark-mode')]
     public function themeDark(RequestStack $requestStack): Response
     {
         $requestStack->getSession()->set('theme', 'dark');
@@ -291,9 +241,7 @@ class DefaultController extends AbstractController
         return $this->redirectToRoute('homepage');
     }
 
-    /**
-     * @Route("/light-mode", name="light-mode")
-     */
+    #[Route(path: '/light-mode', name: 'light-mode')]
     public function themeLight(RequestStack $requestStack): Response
     {
         $requestStack->getSession()->remove('theme');
@@ -301,9 +249,7 @@ class DefaultController extends AbstractController
         return $this->redirectToRoute('homepage');
     }
 
-    /**
-     * @Route("/navbar-overlapping", defaults={}, name="navbar-overlapping")
-     */
+    #[Route(path: '/navbar-overlapping', defaults: [], name: 'navbar-overlapping')]
     public function navbarOverlapping(ContextHelper $contextHelper): Response
     {
         $contextHelper->setIsNavbarOverlapping(true);
@@ -311,17 +257,13 @@ class DefaultController extends AbstractController
         return $this->render('default/index.html.twig', []);
     }
 
-    /**
-     * @Route("/navbar-vertical", defaults={}, name="navbar-vertical")
-     */
+    #[Route(path: '/navbar-vertical', defaults: [], name: 'navbar-vertical')]
     public function navbarVertical(): Response
     {
         return $this->render('default/vertical-navbar.html.twig', []);
     }
 
-    /**
-     * @Route("/right-to-left", defaults={}, name="layout-rtl")
-     */
+    #[Route(path: '/right-to-left', defaults: [], name: 'layout-rtl')]
     public function rightToLeft(ContextHelper $contextHelper): Response
     {
         $contextHelper->setIsRightToLeft(true);
@@ -329,17 +271,13 @@ class DefaultController extends AbstractController
         return $this->render('default/index.html.twig', []);
     }
 
-    /**
-     * @Route("/security-centered", defaults={}, name="security-centered")
-     */
+    #[Route(path: '/security-centered', defaults: [], name: 'security-centered')]
     public function securityCentered(ContextHelper $contextHelper): Response
     {
         return $this->render('login.html.twig', []);
     }
 
-    /**
-     * @Route("/security-cover", defaults={}, name="security-cover")
-     */
+    #[Route(path: '/security-cover', defaults: [], name: 'security-cover')]
     public function securityCover(ContextHelper $contextHelper): Response
     {
         return $this->render('login-cover.html.twig', []);

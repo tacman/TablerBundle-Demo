@@ -18,13 +18,8 @@ use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 
 class MenuBuilderSubscriber implements EventSubscriberInterface
 {
-    private $security;
-    private $environment;
-
-    public function __construct(AuthorizationCheckerInterface $security, string $environment)
+    public function __construct(private AuthorizationCheckerInterface $security, private string $environment)
     {
-        $this->security = $security;
-        $this->environment = $environment;
     }
 
     public static function getSubscribedEvents(): array
@@ -128,7 +123,6 @@ class MenuBuilderSubscriber implements EventSubscriberInterface
     }
 
     /**
-     * @param string $route
      * @param MenuItemInterface[] $items
      */
     protected function activateByRoute(string $route, array $items): void

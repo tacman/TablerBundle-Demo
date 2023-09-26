@@ -31,14 +31,11 @@ class RedirectToLocaleSubscriber implements EventSubscriberInterface
      *
      * @var string[]
      */
-    private $locales = [];
-    private $defaultLocale = '';
-    private $urlGenerator;
+    private array $locales = [];
+    private string $defaultLocale = '';
 
-    public function __construct(UrlGeneratorInterface $urlGenerator, string $locales, ?string $defaultLocale = null)
+    public function __construct(private UrlGeneratorInterface $urlGenerator, string $locales, ?string $defaultLocale = null)
     {
-        $this->urlGenerator = $urlGenerator;
-
         $this->locales = explode('|', trim($locales));
         if (empty($this->locales)) {
             throw new \UnexpectedValueException('The list of supported locales must not be empty.');

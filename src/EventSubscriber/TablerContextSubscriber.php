@@ -13,26 +13,14 @@ namespace App\EventSubscriber;
 use KevinPapst\TablerBundle\Helper\ContextHelper;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
-<<<<<<< HEAD
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
-=======
->>>>>>> main
 use Symfony\Component\HttpKernel\Event\RequestEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
 
 final class TablerContextSubscriber implements EventSubscriberInterface
 {
-    private $contextHelper;
-    private $requestStack;
-
-    public function __construct(ContextHelper $contextHelper, RequestStack $requestStack)
+    public function __construct(private ContextHelper $contextHelper, private RequestStack $requestStack)
     {
-        $this->contextHelper = $contextHelper;
-        $this->requestStack = $requestStack;
-<<<<<<< HEAD
-
-=======
->>>>>>> main
     }
 
     public static function getSubscribedEvents(): array
