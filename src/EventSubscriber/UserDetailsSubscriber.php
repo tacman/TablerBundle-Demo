@@ -13,8 +13,8 @@ namespace App\EventSubscriber;
 use KevinPapst\TablerBundle\Event\UserDetailsEvent;
 use KevinPapst\TablerBundle\Model\MenuItemModel;
 use KevinPapst\TablerBundle\Model\UserModel;
+use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Symfony\Component\Security\Core\Security;
 use Symfony\Component\Security\Core\User\InMemoryUser;
 
 class UserDetailsSubscriber implements EventSubscriberInterface

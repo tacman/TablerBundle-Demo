@@ -32,7 +32,7 @@ use Symfony\Component\Validator\Constraints\NotNull;
 
 class FormDemoModelType extends AbstractType
 {
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $radios = [
             'This is option 1' => 'opt1',
@@ -159,7 +159,7 @@ class FormDemoModelType extends AbstractType
         ;
     }
 
-    public function setDefaultOptions(OptionsResolver $resolver)
+    public function setDefaultOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
             'data_class' => FormDemoModelType::class,
