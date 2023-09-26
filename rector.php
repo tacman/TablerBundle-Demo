@@ -7,7 +7,6 @@ use Rector\Config\RectorConfig;
 use Rector\Set\ValueObject\LevelSetList;
 use Rector\Doctrine\Set\DoctrineSetList;
 use Rector\Symfony\Set\SymfonySetList;
-use Rector\Symfony\Set\SensiolabsSetList;
 
 return static function (RectorConfig $rectorConfig): void {
     $rectorConfig->paths([
