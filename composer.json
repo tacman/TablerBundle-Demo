@@ -12,7 +12,7 @@
         "doctrine/doctrine-bundle": "*",
         "doctrine/orm": "*",
         "composer/package-versions-deprecated": "^1.11.99",
-        "kevinpapst/tabler-bundle": "*",
+        "kevinpapst/tabler-bundle": "dev-main",
         "knplabs/knp-menu-bundle": "^3.0",
         "symfony/asset": ">= 6.1",
         "symfony/console": ">= 6.1",
@@ -98,12 +98,6 @@
         "symfony": {
             "allow-contrib": true,
             "require": "^6.3"
-        }
-    },
-    "repositories": {
-        "tabler-bundle": {
-            "type": "path",
-            "url": "~/g/kevinpapst/TablerBundle"
         }
     }
 }

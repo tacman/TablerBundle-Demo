@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b847fa72e53751496de8a6d3086f6c3d",
+    "content-hash": "6db4267051452595ff977c0b3629770d",
     "packages": [
         {
             "name": "composer/package-versions-deprecated",
@@ -1258,65 +1258,52 @@
         },
         {
             "name": "kevinpapst/tabler-bundle",
-            "version": "dev-symfony-6",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kevinpapst/TablerBundle.git",
+                "reference": "84d8db2c7ef5bb4d0d8d89627882935ad198c3cc"
+            },
             "dist": {
-                "type": "path",
-                "url": "/home/tac/g/kevinpapst/TablerBundle",
-                "reference": "dfbbe09758c3be9f6ce33dbea97fe964af870edc"
+                "type": "zip",
+                "url": "https://api.github.com/repos/kevinpapst/TablerBundle/zipball/84d8db2c7ef5bb4d0d8d89627882935ad198c3cc",
+                "reference": "84d8db2c7ef5bb4d0d8d89627882935ad198c3cc",
+                "shasum": ""
             },
             "require": {
-                "php": ">=8.1",
-                "symfony/asset": "^6.0 || ^7.0",
-                "symfony/config": "^6.0 || ^7.0",
-                "symfony/dependency-injection": "^6.0 || ^7.0",
-                "symfony/event-dispatcher": "^6.0 || ^7.0",
-                "symfony/http-foundation": "^6.0 || ^7.0",
-                "symfony/http-kernel": "^6.0 || ^7.0",
-                "symfony/options-resolver": "^6.0 || ^7.0",
-                "symfony/security-core": "^6.0 || ^7.0",
-                "symfony/translation": "^6.0 || ^7.0",
-                "symfony/twig-bridge": "^6.0 || ^7.0",
+                "php": "8.1.*||8.2.*",
+                "symfony/asset": "^6.0",
+                "symfony/config": "^6.0",
+                "symfony/dependency-injection": "^6.0",
+                "symfony/event-dispatcher": "^6.0",
+                "symfony/http-foundation": "^6.0",
+                "symfony/http-kernel": "^6.0",
+                "symfony/options-resolver": "^6.0",
+                "symfony/security-core": "^6.0",
+                "symfony/translation": "^6.0",
+                "symfony/twig-bridge": "^6.0",
                 "twig/twig": "^3.0"
             },
             "require-dev": {
                 "friendsofphp/php-cs-fixer": "^3.0",
                 "knplabs/knp-menu-bundle": "^3.0",
-                "phpspec/prophecy": "^1.6",
                 "phpstan/phpstan": "^1.0",
                 "phpstan/phpstan-phpunit": "^1.0",
                 "phpstan/phpstan-symfony": "^1.0",
-                "phpunit/phpunit": "^8.0",
-                "symfony/framework-bundle": "^4.4|^5.0|^6.0 || ^7.0"
+                "phpunit/phpunit": "^9.0",
+                "symfony/framework-bundle": "^6.0"
             },
             "suggest": {
                 "knplabs/knp-menu-bundle": "Allows easy menu integration"
             },
+            "default-branch": true,
             "type": "symfony-bundle",
             "autoload": {
                 "psr-4": {
                     "KevinPapst\\TablerBundle\\": "src/"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "KevinPapst\\TablerBundle\\Tests\\": "tests/"
-                }
-            },
-            "scripts": {
-                "tests": [
-                    "vendor/bin/phpunit tests/"
-                ],
-                "phpstan": [
-                    "vendor/bin/phpstan analyse src/ --level=5",
-                    "vendor/bin/phpstan analyse -c tests/phpstan.neon tests/ --level=5"
-                ],
-                "codestyle": [
-                    "vendor/bin/php-cs-fixer fix --dry-run --verbose --show-progress=none"
-                ],
-                "codestyle-fix": [
-                    "vendor/bin/php-cs-fixer fix"
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -1327,9 +1314,21 @@
                 }
             ],
             "description": "Admin/Backend theme bundle for Symfony based on Tabler.io",
-            "transport-options": {
-                "relative": false
-            }
+            "support": {
+                "issues": "https://github.com/kevinpapst/TablerBundle/issues",
+                "source": "https://github.com/kevinpapst/TablerBundle/tree/main"
+            },
+            "funding": [
+                {
+                    "url": "https://paypal.me/kevinpapst",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/kevinpapst",
+                    "type": "github"
+                }
+            ],
+            "time": "2023-09-26T14:42:01+00:00"
         },
         {
             "name": "knplabs/knp-menu",
@@ -5701,31 +5700,31 @@
         },
         {
             "name": "symfony/webpack-encore-bundle",
-            "version": "v2.0.1",
+            "version": "v2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/webpack-encore-bundle.git",
-                "reference": "150fe022740fef908f4ca3d5950ce85ab040ec76"
+                "reference": "50d4af5cca35dab66a51dfeeb63616937ba96f4a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/webpack-encore-bundle/zipball/150fe022740fef908f4ca3d5950ce85ab040ec76",
-                "reference": "150fe022740fef908f4ca3d5950ce85ab040ec76",
+                "url": "https://api.github.com/repos/symfony/webpack-encore-bundle/zipball/50d4af5cca35dab66a51dfeeb63616937ba96f4a",
+                "reference": "50d4af5cca35dab66a51dfeeb63616937ba96f4a",
                 "shasum": ""
             },
             "require": {
                 "php": ">=8.1.0",
-                "symfony/asset": "^5.4 || ^6.2",
-                "symfony/config": "^5.4 || ^6.2",
-                "symfony/dependency-injection": "^5.4 || ^6.2",
-                "symfony/http-kernel": "^5.4 || ^6.2",
+                "symfony/asset": "^5.4 || ^6.2 || ^7.0",
+                "symfony/config": "^5.4 || ^6.2 || ^7.0",
+                "symfony/dependency-injection": "^5.4 || ^6.2 || ^7.0",
+                "symfony/http-kernel": "^5.4 || ^6.2 || ^7.0",
                 "symfony/service-contracts": "^1.1.9 || ^2.1.3 || ^3.0"
             },
             "require-dev": {
-                "symfony/framework-bundle": "^5.4 || ^6.2",
-                "symfony/phpunit-bridge": "^5.4 || ^6.2",
-                "symfony/twig-bundle": "^5.4 || ^6.2",
-                "symfony/web-link": "^5.4 || ^6.2"
+                "symfony/framework-bundle": "^5.4 || ^6.2 || ^7.0",
+                "symfony/phpunit-bridge": "^5.4 || ^6.2 || ^7.0",
+                "symfony/twig-bundle": "^5.4 || ^6.2 || ^7.0",
+                "symfony/web-link": "^5.4 || ^6.2 || ^7.0"
             },
             "type": "symfony-bundle",
             "extra": {
@@ -5752,7 +5751,7 @@
             "description": "Integration with your Symfony app & Webpack Encore!",
             "support": {
                 "issues": "https://github.com/symfony/webpack-encore-bundle/issues",
-                "source": "https://github.com/symfony/webpack-encore-bundle/tree/v2.0.1"
+                "source": "https://github.com/symfony/webpack-encore-bundle/tree/v2.1.0"
             },
             "funding": [
                 {
@@ -5768,7 +5767,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-05-31T14:28:33+00:00"
+            "time": "2023-09-26T14:41:29+00:00"
         },
         {
             "name": "symfony/yaml",
@@ -6711,7 +6710,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "kevinpapst/tabler-bundle": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
