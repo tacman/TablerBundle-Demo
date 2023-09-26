@@ -78,6 +78,30 @@ class DefaultController extends AbstractController
     }
 
     /**
+     * @Route("/callout", name="callout")
+     */
+    public function callout(): Response
+    {
+        return $this->render('components/callout.html.twig');
+    }
+
+    /**
+     * @Route("/modal", name="modal")
+     */
+    public function modal(): Response
+    {
+        return $this->render('components/modal.html.twig');
+    }
+
+    /**
+     * @Route("/offcanvas", name="offcanvas")
+     */
+    public function offcanvas(): Response
+    {
+        return $this->render('components/offcanvas.html.twig');
+    }
+
+    /**
      * @Route("/timeline", name="timeline")
      */
     public function timeline(): Response
@@ -227,6 +251,7 @@ class DefaultController extends AbstractController
     {
         return $this->render('default/vertical-navbar.html.twig', []);
     }
+
     /**
      * @Route("/right-to-left", defaults={}, name="layout-rtl")
      */
