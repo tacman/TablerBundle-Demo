@@ -11,7 +11,7 @@
         {% for important in [true, false] %}
             {% for dismissible in [true, false] %}
                 {% for icon in ['false', 'warning','export'] %}
-                    {% set title = '&lt;twig:Alert icon="%s" dismissible="%s" important="%s" type="%s"&gt;'|format(icon, dismissible ? 'true' : 'false', important ? 'true' : 'false', type) %}
+                    {% set title = '&lt;twig:Alert icon="%s" dismissible="%s" important="%s" type="%s" /&gt;'|format(icon, dismissible ? 'true' : 'false', important ? 'true' : 'false', type) %}
                     <twig:Alert :title="title" :raw="true" :dismissible="dismissible" :important="important" :icon="icon" :type="type"/>
                 {% endfor %}
             {% endfor %}
