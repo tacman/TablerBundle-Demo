@@ -1,0 +1,31 @@
+{#@todo:  utils.attr_to_html(_attr)#}
+<div
+        {% if id %}id="{{ id }}"{% endif %}
+        class="alert alert-{{ type }} {% if dismissible %}alert-dismissible{% endif %} {% if important %}alert-important{% endif %} {{ class }}"
+        role="alert"
+>
+    <div class="d-flex">
+        {% if icon %}
+            <div class="alert-icon" title="{{ icon }}">
+                {{ tabler_icon(icon, true) }}
+            </div>
+        {% endif %}
+
+        {% if title or description  %}
+            <div>
+                {% if title  %}
+                    <h4 class="{% if not important %}alert-title{% endif %} {{ description is not empty ? 'mb-1' : 'mb-0' }}">{{ raw ? title|raw : title }}</h4>
+                {% endif %}
+                {% if description  %}
+                    {% if important %}
+                        <p class="m-0">{{ raw ? description|raw : description }}</p>
+                    {% else %}
+                        <div class="text-body-secondary">{{ raw ? description|raw : description }}</div>
+                    {% endif %}
+                {% endif %}
+            </div>
+        {% endif %}
+    </div>
+
+    {% if dismissible %}<a class="btn-close" data-bs-dismiss="alert" aria-label="close"></a>{% endif %}
+</div>
