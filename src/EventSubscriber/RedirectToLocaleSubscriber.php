@@ -34,7 +34,9 @@ class RedirectToLocaleSubscriber implements EventSubscriberInterface
     private array $locales = [];
     private string $defaultLocale = '';
 
-    public function __construct(private UrlGeneratorInterface $urlGenerator, string $locales, ?string $defaultLocale = null)
+    public function __construct(private UrlGeneratorInterface $urlGenerator,
+                                string $locales,
+                                ?string $defaultLocale = null)
     {
         $this->locales = explode('|', trim($locales));
         if (empty($this->locales)) {
